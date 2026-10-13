@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coding Academy | Pendaftaran</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span>&lt;/&gt;</span> Coding Academy
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Gallery</a>
+            <a href="pendaftaran.html" class="active">Pendaftaran</a>
+        </div>
+    </nav>
+
+    <!-- FORM PENDAFTARAN -->
+    <main class="registration-section">
+
+        <div class="registration-heading">
+            <p class="subtitle">JOIN OUR ACADEMY</p>
+
+            <h1>Formulir <span>Pendaftaran</span></h1>
+
+            <p>
+                Lengkapi data diri kamu untuk bergabung
+                bersama Coding Academy.
+            </p>
+        </div>
+
+        <div class="form-container">
+
+            <form id="registrationForm">
+
+                <!-- NIK -->
+                <div class="form-group">
+                    <label for="nik">NIK</label>
+
+                    <input
+                        type="text"
+                        id="nik"
+                        name="nik"
+                        placeholder="Masukkan 16 digit NIK"
+                        inputmode="numeric"
+                        pattern="[0-9]{16}"
+                        maxlength="16"
+                        required>
+
+                    <small>Masukkan NIK sebanyak 16 digit.</small>
+                </div>
+
+                <!-- NAMA -->
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Masukkan nama lengkap"
+                        required>
+                </div>
+
+                <!-- JENIS KELAMIN -->
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+
+                    <div class="radio-options">
+
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="jenisKelamin"
+                                value="Laki-laki"
+                                required>
+
+                            Laki-laki
+                        </label>
+
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="jenisKelamin"
+                                value="Perempuan">
+
+                            Perempuan
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- NO HP -->
+                <div class="form-group">
+                    <label for="nohp">Nomor HP</label>
+
+                    <input
+                        type="tel"
+                        id="nohp"
+                        name="nohp"
+                        placeholder="Contoh: 081234567890"
+                        required>
+                </div>
+
+                <!-- ALAMAT -->
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+
+                    <textarea
+                        id="alamat"
+                        name="alamat"
+                        rows="4"
+                        placeholder="Masukkan alamat lengkap"
+                        required></textarea>
+                </div>
+
+                <!-- BAHASA PEMROGRAMAN -->
+                <div class="form-group">
+                    <label for="bahasa">
+                        Bahasa Pemrograman yang Diminati
+                    </label>
+
+                    <select
+                        id="bahasa"
+                        name="bahasa"
+                        required>
+
+                        <option value="">
+                            -- Pilih Bahasa Pemrograman --
+                        </option>
+
+                        <option value="HTML dan CSS">
+                            HTML dan CSS
+                        </option>
+
+                        <option value="JavaScript">
+                            JavaScript
+                        </option>
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                        <option value="Java">
+                            Java
+                        </option>
+
+                        <option value="PHP">
+                            PHP
+                        </option>
+
+                        <option value="C++">
+                            C++
+                        </option>
+
+                    </select>
+                </div>
+
+                <!-- TOMBOL -->
+                <div class="form-buttons">
+
+                    <button type="submit" class="btn-primary">
+                        Simpan Pendaftaran
+                    </button>
+
+                    <button type="reset" class="btn-secondary">
+                        Reset
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+
+        <!-- HASIL PENDAFTARAN -->
+        <section id="resultSection" class="result-container" hidden>
+
+            <div class="result-heading">
+                <div class="success-icon">&#10003;</div>
+
+                <h2>Pendaftaran Berhasil!</h2>
+
+                <p>
+                    Berikut adalah data pendaftaran yang telah kamu isi.
+                </p>
+            </div>
+
+            <table class="result-table">
+
+                <tr>
+                    <th>NIK</th>
+                    <td id="resultNik"></td>
+                </tr>
+
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <td id="resultNama"></td>
+                </tr>
+
+                <tr>
+                    <th>Jenis Kelamin</th>
+                    <td id="resultGender"></td>
+                </tr>
+
+                <tr>
+                    <th>Nomor HP</th>
+                    <td id="resultNohp"></td>
+                </tr>
+
+                <tr>
+                    <th>Alamat</th>
+                    <td id="resultAlamat"></td>
+                </tr>
+
+                <tr>
+                    <th>Bahasa Pemrograman</th>
+                    <td id="resultBahasa"></td>
+                </tr>
+
+            </table>
+
+            <button
+                type="button"
+                class="btn-secondary"
+                onclick="editData()">
+
+                Kembali ke Formulir
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3><span>&lt;/&gt;</span> Coding Academy</h3>
+
+        <p>
+            Belajar hari ini, membangun masa depan esok hari.
+        </p>
+
+        <p class="copyright">
+            &copy; 2026 Coding Academy. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

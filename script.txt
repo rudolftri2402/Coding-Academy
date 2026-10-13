@@ -1,0 +1,91 @@
+const registrationForm =
+    document.getElementById("registrationForm");
+
+const resultSection =
+    document.getElementById("resultSection");
+
+
+registrationForm.addEventListener("submit", function(event) {
+
+    // Mencegah halaman reload
+    event.preventDefault();
+
+    // Menampilkan dialog konfirmasi
+    const yakin = confirm(
+        "Apakah Anda sudah yakin untuk menyimpan?"
+    );
+
+    // Jika memilih Cancel / Tidak
+    if (!yakin) {
+        return;
+    }
+
+    // Mengambil data dari form
+    const nik =
+        document.getElementById("nik").value.trim();
+
+    const nama =
+        document.getElementById("nama").value.trim();
+
+    const jenisKelamin =
+        document.querySelector(
+            'input[name="jenisKelamin"]:checked'
+        ).value;
+
+    const nohp =
+        document.getElementById("nohp").value.trim();
+
+    const alamat =
+        document.getElementById("alamat").value.trim();
+
+    const bahasa =
+        document.getElementById("bahasa").value;
+
+
+    // Menampilkan data pada halaman hasil
+    document.getElementById("resultNik").textContent =
+        nik;
+
+    document.getElementById("resultNama").textContent =
+        nama;
+
+    document.getElementById("resultGender").textContent =
+        jenisKelamin;
+
+    document.getElementById("resultNohp").textContent =
+        nohp;
+
+    document.getElementById("resultAlamat").textContent =
+        alamat;
+
+    document.getElementById("resultBahasa").textContent =
+        bahasa;
+
+
+    // Menampilkan hasil dan menyembunyikan form
+    registrationForm.closest(".form-container").hidden = true;
+
+    resultSection.hidden = false;
+
+    // Memindahkan tampilan ke hasil
+    resultSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+});
+
+
+// Tombol kembali ke formulir
+function editData() {
+
+    resultSection.hidden = true;
+
+    registrationForm.closest(".form-container").hidden = false;
+
+    registrationForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
